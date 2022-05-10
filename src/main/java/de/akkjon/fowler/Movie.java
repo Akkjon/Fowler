@@ -1,3 +1,5 @@
+package de.akkjon.fowler;
+
 public class Movie {
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
@@ -8,7 +10,7 @@ public class Movie {
 
     public Movie(String newtitle, int newpriceCode) {
         title = newtitle;
-        priceCode = newpriceCode;
+        setPriceCode(newpriceCode);
     }
 
     public int getPriceCode() {

@@ -1,3 +1,6 @@
+package de.akkjon.fowler;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,12 +21,12 @@ class RentalTest {
 
     @Test
     void getDaysRented() {
-        assertEquals(daysRented, rental.getDaysRented());
+        Assertions.assertEquals(daysRented, rental.getDaysRented());
     }
 
     @Test
     void getMovie() {
-        assertEquals(movie, rental.getMovie());
+        Assertions.assertEquals(movie, rental.getMovie());
     }
 
     @Test
@@ -36,8 +39,8 @@ class RentalTest {
         Rental rental2 = new Rental(movie2, 1);
         Rental rental3 = new Rental(movie3, 1);
 
-        assertEquals(3, rental1.getCharge());
-        assertEquals(2, rental2.getCharge());
-        assertEquals(1.5, rental3.getCharge());
+        Assertions.assertEquals(3, rental1.getCharge());
+        Assertions.assertEquals(2, rental2.getCharge());
+        Assertions.assertEquals(1.5, rental3.getCharge());
     }
 }

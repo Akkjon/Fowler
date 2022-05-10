@@ -1,3 +1,6 @@
+package de.akkjon.fowler;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,18 +21,18 @@ class MovieTest {
 
     @Test
     void getPriceCode() {
-        assertEquals(pieceCode, movie.getPriceCode());
+        Assertions.assertEquals(pieceCode, movie.getPriceCode());
     }
 
     @Test
     void setPriceCode() {
         movie.setPriceCode(5);
-        assertEquals(5, movie.getPriceCode());
+        Assertions.assertEquals(5, movie.getPriceCode());
     }
 
     @Test
     void getTitle() {
-        assertEquals(name, movie.getTitle());
+        Assertions.assertEquals(name, movie.getTitle());
     }
 
     private String randomString() {

@@ -1,3 +1,5 @@
+package de.akkjon.fowler;
+
 class Rental {
     private Movie movie;
     private int daysRented;
