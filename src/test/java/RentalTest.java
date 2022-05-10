@@ -25,4 +25,19 @@ class RentalTest {
     void getMovie() {
         assertEquals(movie, rental.getMovie());
     }
+
+    @Test
+    void charge() {
+        Movie movie1 = new Movie("1", Movie.NEW_RELEASE);
+        Movie movie2 = new Movie("2", Movie.REGULAR);
+        Movie movie3 = new Movie("3", Movie.CHILDRENS);
+
+        Rental rental1 = new Rental(movie1, 1);
+        Rental rental2 = new Rental(movie2, 1);
+        Rental rental3 = new Rental(movie3, 1);
+
+        assertEquals(3, rental1.getCharge());
+        assertEquals(2, rental2.getCharge());
+        assertEquals(1.5, rental3.getCharge());
+    }
 }
