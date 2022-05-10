@@ -6,4 +6,8 @@ public interface Price {
 
     int getPriceCode();
 
+    default int getFrequentRenterPoints(int daysRented){
+        return 1;
+    }
+
 }
