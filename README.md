@@ -1,0 +1,2 @@
+This file was created by IntelliJ IDEA 12.1.6 for binding GitHub repository
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/0453c1a8bfdf4b039271c691603efc82)](https://www.codacy.com/gh/Akkjon/Fowler/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Akkjon/Fowler&amp;utm_campaign=Badge_Grade)
