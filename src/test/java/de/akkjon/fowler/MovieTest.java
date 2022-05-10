@@ -15,7 +15,7 @@ class MovieTest {
     @BeforeEach
     void setup() {
         this.name = randomString();
-        this.pieceCode = (int) (Math.random() * 100);
+        this.pieceCode = (int) (Math.random() * 3);
         this.movie = new Movie(name, pieceCode);
     }
 
@@ -26,8 +26,8 @@ class MovieTest {
 
     @Test
     void setPriceCode() {
-        movie.setPriceCode(5);
-        Assertions.assertEquals(5, movie.getPriceCode());
+        movie.setPriceCode(2);
+        Assertions.assertEquals(2, movie.getPriceCode());
     }
 
     @Test

@@ -1,12 +1,16 @@
 package de.akkjon.fowler;
 
+import de.akkjon.fowler.prices.ChildrenPrice;
+import de.akkjon.fowler.prices.NewReleasePrice;
+import de.akkjon.fowler.prices.RegularPrice;
+
 public class Movie {
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
 
     private String title;
-    private int priceCode;
+    private Price price;
 
     public Movie(String newtitle, int newpriceCode) {
         title = newtitle;
@@ -14,11 +18,16 @@ public class Movie {
     }
 
     public int getPriceCode() {
-        return priceCode;
+        return price.getPriceCode();
     }
 
-    public void setPriceCode(int arg) {
-        priceCode = arg;
+    public void setPriceCode(int priceCode) {
+        price = switch (priceCode) {
+            case REGULAR -> new RegularPrice();
+            case NEW_RELEASE -> new NewReleasePrice();
+            case CHILDRENS -> new ChildrenPrice();
+            default -> throw new IllegalArgumentException("Incorrect Price Code");
+        };
     }
 
     public String getTitle (){
