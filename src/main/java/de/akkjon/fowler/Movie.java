@@ -9,7 +9,7 @@ public class Movie {
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
 
-    private String title;
+    private final String title;
     private Price price;
 
     public Movie(String newtitle, int newpriceCode) {
@@ -32,7 +32,7 @@ public class Movie {
 
     public String getTitle (){
         return title;
-    };
+    }
 
     public double getCharge(int daysRented) {
         return price.getCharge(daysRented);

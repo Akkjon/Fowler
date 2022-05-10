@@ -1,38 +1,37 @@
 package de.akkjon.fowler;
 
-import java.lang.*;
 import java.util.*;
 
 class Customer {
-    private String name;
-    private Vector<Rental> rentals = new Vector<>();
+    private final String name;
+    private final Vector<Rental> rentals = new Vector<>();
 
     public Customer (String newname){
         name = newname;
-    };
+    }
 
     public void addRental(Rental arg) {
         rentals.addElement(arg);
-    };
+    }
 
     public String getName (){
         return name;
-    };
+    }
 
     public String statement() {
-        Enumeration enum_rentals = rentals.elements();	    
-        String result = "Rental Record for " + this.getName() + "\n";
-        result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
+        Enumeration<Rental> enumRentals = rentals.elements();
+        StringBuilder result = new StringBuilder("Rental Record for ").append(this.getName()).append("\n");
+        result.append("\tTitle\t\tDays\tAmount\n");
 
-        while (enum_rentals.hasMoreElements()) {
-            Rental each = (Rental) enum_rentals.nextElement();
+        while (enumRentals.hasMoreElements()) {
+            Rental each = enumRentals.nextElement();
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle()+ "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(each.getCharge()) + "\n";
+            result.append(String.format("\t%s\t\t%d\t%f%n", each.getMovie().getTitle(), each.getDaysRented(), each.getCharge()));
         }
         //add footer lines
-        result += "Amount owed is " + getTotalCharge() + "\n";
-        result += "You earned " + getTotalFrequentRenterPoints() + " frequent renter points";
-        return result;
+        result.append(String.format("Amount owed is %f%n", getTotalCharge()));
+        result.append(String.format("You earned %d  frequent renter points", getTotalFrequentRenterPoints()));
+        return result.toString();
     }
 
     private double getTotalCharge() {
